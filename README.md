@@ -4,7 +4,7 @@ QulipBoard is a tool that allows you to quickly swap clipboard history using key
 
 ## Installation
 
-1. Download [THIS FILE (Self-Contained Ver.)](Application\QulipBoard(Self-Contained).zip) or [THIS FILE (Framework-Dependent Ver.)](Application\QulipBoard(Framework-Dependent).zip) and extract it wherever you want.
+1. Download [THIS FILE (Self-Contained Ver.)](Application/QulipBoard(Self-Contained).zip) or [THIS FILE (Framework-Dependent Ver.)](Application/QulipBoard(Framework-Dependent).zip) and extract it wherever you want.
 	* You can choose `Self-Contained` or `Framework-Dependent` version. 
 	* `Self-Contained` version is larger but it doesn't require .NET Core to be installed on your computer.
 	* `Framework-Dependent` version is smaller but it requires .NET Core to be installed on your computer.
