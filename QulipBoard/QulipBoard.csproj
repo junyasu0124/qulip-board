@@ -1,0 +1,58 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<OutputType>WinExe</OutputType>
+		<TargetFramework>net6.0-windows10.0.22621.0</TargetFramework>
+		<Nullable>enable</Nullable>
+		<UseWPF>true</UseWPF>
+		<SupportedOSPlatformVersion>10.0.19041.0</SupportedOSPlatformVersion>
+		<UseWindowsForms>True</UseWindowsForms>
+		<ApplicationIcon>元データ.ico</ApplicationIcon>
+		<PackageIcon>元データSmall.png</PackageIcon>
+		<Version>1.0.0</Version>
+		<PackageReleaseNotes>リリース</PackageReleaseNotes>
+		<Platforms>x64</Platforms>
+		<Configurations>Debug;Release</Configurations>
+		<RuntimeIdentifiers>win10-x64</RuntimeIdentifiers>
+		<SelfContained>true</SelfContained>
+		<Title>QulipBoard</Title>
+		<Authors>junyasu0124</Authors>
+		<Company>junyasu0124</Company>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+	  <Optimize>True</Optimize>
+	</PropertyGroup>
+
+	<ItemGroup>
+	  <Page Remove="App - コピー.xaml" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <ApplicationDefinition Update="App.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </ApplicationDefinition>
+	</ItemGroup>
+
+	<ItemGroup>
+		<Compile Update="Settings.Designer.cs">
+			<DesignTimeSharedInput>True</DesignTimeSharedInput>
+			<AutoGen>True</AutoGen>
+			<DependentUpon>Settings.settings</DependentUpon>
+		</Compile>
+	</ItemGroup>
+
+	<ItemGroup>
+		<None Update="NotifyIcon.ico">
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</None>
+		<None Update="NotifyIconBlack.ico">
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</None>
+		<None Update="Settings.settings">
+			<Generator>PublicSettingsSingleFileGenerator</Generator>
+			<LastGenOutput>Settings.Designer.cs</LastGenOutput>
+		</None>
+	</ItemGroup>
+
+</Project>
