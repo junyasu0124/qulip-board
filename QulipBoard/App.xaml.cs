@@ -32,7 +32,7 @@ public partial class App : System.Windows.Application
   {
     try // Subscribe to startup
     {
-        var regkey = Registry.CurrentUser.OpenSubKey(@"Software\Microsoft\Windows\CurrentVersion\RunOnce", true);
+        var regkey = Registry.CurrentUser.OpenSubKey(@"Software\Microsoft\Windows\CurrentVersion\Run", true);
         if (regkey != null)
         {
             regkey.SetValue(System.Windows.Forms.Application.ProductName, System.Windows.Forms.Application.ExecutablePath);
@@ -99,13 +99,13 @@ public partial class App : System.Windows.Application
     if (IsEnabled)
     {
       hook.Hook();
-      menu.Items[0].Text = "無効化";
+      menu.Items[0].Text = "Inactivate";
       notifyIcon.Icon = new Icon(AppDomain.CurrentDomain.BaseDirectory + "NotifyIcon.ico");
     }
     else
     {
       hook.UnHook();
-      menu.Items[0].Text = "有効化";
+      menu.Items[0].Text = "Activate";
       notifyIcon.Icon = new Icon(AppDomain.CurrentDomain.BaseDirectory + "NotifyIconBlack.ico");
     }
   }
@@ -118,7 +118,6 @@ public partial class App : System.Windows.Application
     protected const int WM_SYSKEYDOWN = 0x0104;
     protected const int WM_SYSKEYUP = 0x0105;
 
-    // winuser.hで定義
     private const int VK_LControl = 0xA2;
 
     [StructLayout(LayoutKind.Sequential)]
@@ -201,13 +200,8 @@ public partial class App : System.Windows.Application
       return CallNextHookEx(hookId, nCode, wParam, lParam);
     }
 
-    //private delegate void KeyEventHandler(object sender, KeyEventArg e);
-    //private event KeyEventHandler? KeyDownEvent;
-    //private event KeyEventHandler? KeyUpEvent;
-
     protected static async void OnKeyDownEvent(int keyCode)
     {
-      //KeyDownEvent?.Invoke(this, new KeyEventArg(keyCode));
       if (keyCode == (int)Keys.LControlKey)
       {
         IsCtrlPressed = true;
@@ -224,19 +218,9 @@ public partial class App : System.Windows.Application
         IsCtrlPressed = false;
         IsAltPressed = false;
       }
-      /*if (keyCode == (int)Keys.LControlKey)
-      {
-        IsCtrlPressed = true;
-      }
-      else if (keyCode == (int)Keys.Space && IsCtrlPressed)
-      {
-        await EditClipBoard.ChangeOrderSecondAsync();
-        IsCtrlPressed = false;
-      }*/
     }
     protected static void OnKeyUpEvent(int keyCode)
     {
-      //KeyUpEvent?.Invoke(this, new KeyEventArg(keyCode));
       if (keyCode == (int)Keys.LControlKey)
       {
         IsCtrlPressed = false;
@@ -245,31 +229,17 @@ public partial class App : System.Windows.Application
       {
         IsAltPressed = false;
       }
-      /*if (keyCode == (int)Keys.LControlKey)
-      {
-        IsCtrlPressed = false;
-      }*/
     }
 
   }
 
-  /*private class KeyEventArg : EventArgs
-  {
-    private int KeyCode { get; }
-
-    internal KeyEventArg(int keyCode)
-    {
-      KeyCode = keyCode;
-    }
-  }*/
-
   private class EditClipBoard
   {
     /// <returns>
-    /// 0:成功
-    /// 1:クリップボード履歴が無効
-    /// 2:履歴取得失敗
-    /// 3:履歴2番目ににデータなし
+    /// 0: Success
+    /// 1: Clipboard history is not enabled
+    /// 2: Failed to get clipboard history
+    /// 3: Second clipboard history is not exist
     /// </returns>
     internal static async Task<int> ChangeOrderSecondAsync()
     {
