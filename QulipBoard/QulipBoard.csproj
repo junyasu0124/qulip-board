@@ -10,7 +10,7 @@
 		<ApplicationIcon>元データ.ico</ApplicationIcon>
 		<PackageIcon>元データSmall.png</PackageIcon>
 		<Version>1.0.0</Version>
-		<PackageReleaseNotes>リリース</PackageReleaseNotes>
+		<PackageReleaseNotes></PackageReleaseNotes>
 		<Platforms>x64</Platforms>
 		<Configurations>Debug;Release</Configurations>
 		<RuntimeIdentifiers>win10-x64</RuntimeIdentifiers>
@@ -18,6 +18,11 @@
 		<Title>QulipBoard</Title>
 		<Authors>junyasu0124</Authors>
 		<Company>junyasu0124</Company>
+		<PackageProjectUrl>https://github.com/junyasu0124/qulip-board</PackageProjectUrl>
+		<PackageReadmeFile>README.md</PackageReadmeFile>
+		<RepositoryUrl>https://github.com/junyasu0124/qulip-board</RepositoryUrl>
+		<PackageTags>clipboard: shortcut; keyboard shortcut</PackageTags>
+		<PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
 	</PropertyGroup>
 
 	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -26,6 +31,17 @@
 
 	<ItemGroup>
 	  <Page Remove="App - コピー.xaml" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <None Include="..\LICENSE.txt">
+	    <Pack>True</Pack>
+	    <PackagePath>\</PackagePath>
+	  </None>
+	  <None Include="..\README.md">
+	    <Pack>True</Pack>
+	    <PackagePath>\</PackagePath>
+	  </None>
 	</ItemGroup>
 
 	<ItemGroup>
