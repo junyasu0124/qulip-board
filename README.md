@@ -24,7 +24,7 @@ QulipBoard is a tool that allows you to quickly swap clipboard history using key
 * Press `Ctrl + Alt + Space` to swap clipboard history.						
 (You cannot change the shortcut key at the moment.)
 * You can **enable**\/**disable** or **quite** the app by right-clicking on the app's icon in the task bar.
-* This app will automatically start when you log in to your computer. If you want to disable this feature, you can do so at `Task Manager.exe > Start-up tab`.
+* This app will automatically start when you log in to your computer.
 
 ## License
 
