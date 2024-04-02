@@ -11,6 +11,7 @@ QulipBoard is a tool that allows you to quickly swap clipboard history using key
 	* If you are not sure which one to choose, choose `Self-Contained` version.
 <br>
 1. Run `QulipBoard.exe` to start the program.
+1. You can see the icon in the task bar if the app is running.
 #### \<Attention\>: Sometimes antivirus software may flag this app as a virus. Please whitelist this app if you trust it. If you have any concerns, feel free to build it from the repository youself!
 
 #### File hashes (SHA-256)
